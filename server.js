@@ -11,6 +11,13 @@ app.use(cors());
 
 const FINNHUB_KEY = process.env.FINNHUB_KEY;
 
+// DEBUG: Log env var status on startup
+console.log("=== ENVIRONMENT CHECK ===");
+console.log("FINNHUB_KEY defined:", !!FINNHUB_KEY);
+console.log("FINNHUB_KEY length:", FINNHUB_KEY ? FINNHUB_KEY.length : 0);
+console.log("FINNHUB_KEY preview:", FINNHUB_KEY ? FINNHUB_KEY.substring(0, 8) + "..." : "MISSING");
+console.log("=========================");
+
 // =============================
 // 1. API KEY CHECK
 // =============================
