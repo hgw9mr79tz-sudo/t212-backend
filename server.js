@@ -176,6 +176,11 @@ async function getStockDataWithTrend(symbol) {
 
   } catch (err) {
     console.error(`Error fetching ${symbol}:`, err.message);
+    if (err.response) {
+      console.error(`  Status: ${err.response.status}`);
+      console.error(`  Response: ${JSON.stringify(err.response.data)}`);
+      console.error(`  URL attempted: https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_KEY ? FINNHUB_KEY.substring(0,8) + '...' : 'MISSING'}`);
+    }
     return null;
   }
 }
